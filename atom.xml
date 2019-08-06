@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>渡</title>
+  
+  <subtitle>我有我的坚持,即使没有掌声也会不放弃。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-08-02T10:04:22.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>渡</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JDK从1.0到12各版本介绍</title>
+    <link href="http://yoursite.com/2019/08/02/JDK%E4%BB%8E1-0%E5%88%B012%E5%90%84%E7%89%88%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2019/08/02/JDK从1-0到12各版本介绍/</id>
+    <published>2019-08-02T02:32:30.000Z</published>
+    <updated>2019-08-02T10:04:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>收集了一些JDK各个版本的重要特性，作为一个java开发，除了常用版本与当前火热的版本要了如指掌以外，其他版本也多少都得了解一些吧，不然还不得被小伙伴们笑掉大门牙呀！<a id="more"></a></p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>为了保护小伙伴们的大门牙，下面开始进入正题！</p><h5 id="JDK-1-0-开发代号为-Oak-橡树"><a href="#JDK-1-0-开发代号为-Oak-橡树" class="headerlink" title="JDK 1.0 开发代号为 Oak(橡树)"></a>JDK 1.0 开发代号为 Oak(橡树)</h5><blockquote><p><strong>简介:</strong><br>1995年初发布了Java语言,1996年1月23日，jdk1.0版本发布。jdk1.0当时还是一个纯解释执行的Java虚拟机，性能比较差，运行速度慢。<br>此版本包括两个部分:运行环境（即Java Runtime Environment,JRE）和开发环境（Java Development Kit,IDK）。运行环境包括核心API，集成API、用户界面API、发布技术、Java虚拟机（Java Virtual Machine，JVM）五个部分；其中开发环境包括编译Java程序的编译器（javac 命令）。</p></blockquote><blockquote><p><strong>jdk1.0版本的代表技术:</strong></p><ul><li>Java虚拟机</li><li>Applet</li><li>AWT</li><li>等（我是形容词）</li></ul></blockquote><h5 id="JDK-1-1-开发代号为-Coffce-咖啡"><a href="#JDK-1-1-开发代号为-Coffce-咖啡" class="headerlink" title="JDK 1.1 开发代号为 Coffce(咖啡)"></a>JDK 1.1 开发代号为 Coffce(咖啡)</h5><blockquote><p><strong>简介:</strong><br>1997年2月19日，jdk1.1版本发布。增加了JIT（Just In Time,即时编译）编译器。相对于传统编译器，它会将经常用到的指令保存到内存中。当下次调用的时候不需要重新编译了，此方式让JDK在效率上有了较大优势。</p></blockquote><blockquote><p><strong>jdk1.1的代表技术:</strong> <br><br>JAR文件格式:</p><ul><li>JDBC(Java Database Connectivity）</li><li>JavaBean</li><li>RMI（Remote Method Invocation）<br>语言上:</li><li>内部类（inner Class）</li><li>反射（introspect reflex）</li></ul></blockquote><h5 id="JDK-1-2-开发代号为-Playground-运动场"><a href="#JDK-1-2-开发代号为-Playground-运动场" class="headerlink" title="JDK 1.2 开发代号为 Playground(运动场)"></a>JDK 1.2 开发代号为 Playground(运动场)</h5><blockquote><p><strong>简介:</strong><br>1998年12月4日jdk迎来了一个里程碑的版本1.2。技术体系<br>被分为三个方向，J2SE，J2EE，J2ME。代表技术：EJB，Java Plug-in ，Swing。该版本中虚拟机第一次内置了JIT编译器。语言上：Collections集合类等。<br>1994年4月27日，HotSpot虚拟机发布，该虚拟机是作为jdk2.0的附加程序提供的，后来成为jdk1.3及以后所有版本的Sun jdk 的默认虚拟机。</p></blockquote><blockquote><p><strong>jdk1.2版本的代表技术：</strong></p><ul><li>集合框架</li><li>字符串常量做内存映射</li><li>JIT编译器 (Just In Time)</li><li>对打包Java文件数字签名</li><li>控制授权访问系统资源的策略工具</li><li>JFC(Java Foundation Classes)  Swing 1.0</li><li>拖放和Java2D类库</li><li>Java插件</li><li>JDBC可滚动结果集</li><li>BLOB</li><li>CLOB</li><li>批量更新和用户自定义类型</li><li>Applet中添加声音支持</li></ul></blockquote><h5 id="JDK-1-3-开发代号为-Kestrel-美洲红隼"><a href="#JDK-1-3-开发代号为-Kestrel-美洲红隼" class="headerlink" title="JDK 1.3 开发代号为 Kestrel(美洲红隼)"></a>JDK 1.3 开发代号为 Kestrel(美洲红隼)</h5><blockquote><p><strong>简介：</strong><br>2000年5月8日，jdk1.3发布。jdk1.3对于jdk1.2的改进重要在于一些类库，JNDI服务从jdk1.3开始被作为一项平台级服务提供。</p></blockquote><blockquote><p><strong>jdk1.3版本的代表技术：</strong> </p><ul><li>Java Sound API</li><li>jar文件索引</li><li>对Java的各个方面都做了大量优化和增强</li></ul></blockquote><h5 id="JDK-1-4-开发代号-Merlin-灰背隼"><a href="#JDK-1-4-开发代号-Merlin-灰背隼" class="headerlink" title="JDK 1.4 开发代号 Merlin(灰背隼)"></a>JDK 1.4 开发代号 Merlin(灰背隼)</h5><blockquote><p><strong>简介：</strong><br>2002年2月13日，jdk1.4发布。该版本是Java走向成熟的一个版本，许多著名的公司都有参与甚至实现自己独立的jdk1.4，基于Java语言的开源框架：都能直接运行在jdk1.4至上。Struts、WebWork、Hibernate、Spring等；大量企业应用服务器也开始涌现：WebLogic、WebSphere、JBoss等。</p></blockquote><blockquote><p><strong>jdk1.4版本的代表技术：</strong> </p><ul><li>正则表达式（Regular）</li><li>异常链（链式异常处理）</li><li>NIO</li><li>日志类（Logging）</li><li>XML解析器</li><li>Java打印服务</li><li>Java Web Start</li><li>JDBC 3.0 API</li><li>断言机制</li><li>参数API (Preferences)</li><li>image I/O API</li></ul></blockquote><h5 id="JDK-1-5-开发代号-Tiger-老虎"><a href="#JDK-1-5-开发代号-Tiger-老虎" class="headerlink" title="JDK 1.5 开发代号 Tiger(老虎)"></a>JDK 1.5 开发代号 Tiger(老虎)</h5><blockquote><p><strong>简介：</strong><br>2004年9月30日，jdk1.5发布。Sun将JDK1.5改为Java5.0，J2EE、J2SE和J2ME也相应的改为Java SE、Java ME、Java EE。发布新的企业级平台规范，如通过注释等新特性来简化EJB的复杂性，并推出EJB3.0规范，还推出了自己的MVC框架规范：JSF。该版本在Java语法的易用性做了非常大的改进。</p></blockquote><blockquote><p><strong>主要变更内容：</strong> </p><ul><li>自动装箱与拆箱</li><li>枚举 (Enum)</li><li>静态导入（ import static）</li><li>可变参数（Varargs）</li><li>内省（Introspector）</li><li>泛型(Generic) </li><li>For-Each循环</li><li>元数据注解(Annotation) </li></ul></blockquote><h5 id="JDK-1-6-开发代号-Mustang-野马"><a href="#JDK-1-6-开发代号-Mustang-野马" class="headerlink" title="JDK 1.6 开发代号 Mustang(野马)"></a>JDK 1.6 开发代号 Mustang(野马)</h5><blockquote><p><strong>简介：</strong><br>2006年4月，jdk1.6发布，引入了一个支持脚本引擎的新框架、UI的增强、对WebService支持的增强（JAX-WS2.0和JAXB2.0）、一系列新的安全相关的增强、JDBC4.0、Compiler API、通用的Annotations支持。</p></blockquote><blockquote><p><strong>主要变更内容：</strong> </p><ul><li>Desktop类和SystemTray类 </li><li>使用JAXB2来实现对象与XML之间的映射 </li><li>理解StAX</li><li>使用Compiler API</li><li>轻量级Http Server API</li><li>插入式注解处理API(Pluggable Annotation Processing API) </li><li>用Console开发控制台程序</li><li>对脚本语言的支持如: ruby, groovy, javascript，Common Annotations</li></ul></blockquote><h5 id="JDK-1-7-开发代号-Dolphin-海豚"><a href="#JDK-1-7-开发代号-Dolphin-海豚" class="headerlink" title="JDK 1.7 开发代号 Dolphin(海豚)"></a>JDK 1.7 开发代号 Dolphin(海豚)</h5><blockquote><p><strong>简介：</strong><br>2011年7月28日，jdk1.7发布，引入了二进制整数、支持字符串的switch语句、菱形语法、多异常捕捉、自动关闭资源的try语句等新特性。</p></blockquote><blockquote><p><strong>主要变化内容：</strong> </p><ul><li>switch中可以使用字串</li><li>“&lt;&gt;”这个玩意儿的运用List<string> tempList = new ArrayList&lt;&gt;(); 即泛型实例化类型自动推断。</string></li><li>自定义自动关闭类</li><li>新增一些取环境信息的工具方法</li><li>Boolean类型反转，空指针安全，参与位运算</li><li>两个char间的equals</li><li>安全的加减乘除</li><li>对Java集合（Collections）的增强支持</li><li>数值可加下划线</li><li>支持二进制文字</li><li>简化了可变参数方法的调用</li><li>在try catch异常扑捉中，一个catch可以写多个异常类型，用”|”隔开</li><li>jdk7之前，你必须用try{}finally{}在try内使用资源，在finally中关闭资源，不管try中的代码是否正常退出或者异常退出。jdk7之后，你可以不必要写finally语句来关闭资源，只要你在try()的括号内部定义要使用的资源。</li></ul></blockquote><h5 id="JDK-1-8-开发代号-Spider-蜘蛛"><a href="#JDK-1-8-开发代号-Spider-蜘蛛" class="headerlink" title="JDK 1.8 开发代号 Spider(蜘蛛)"></a>JDK 1.8 开发代号 Spider(蜘蛛)</h5><blockquote><p><strong>简介：</strong><br>2014年03月18日,oracle公司发布了Java1.8，Java1.8是Java语言开发的一个主要版本，带来了全新的Lambda表达式，函数式接口、Lambda 表达式、集合的流式操作、注解的更新、安全性的增强、IO\NIO 的改进、完善的全球化功能等。</p></blockquote><blockquote><p><strong>主要变化内容：</strong> </p><ul><li>接口的默认方法  - 默认方法就是一个在接口里面有了一个实现的方法。</li><li>Lambda 表达式  - Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。</li><li>函数式接口 </li><li>方法与构造函数引用  - 方法引用提供了非常有用的语法，可以直接引用已有Java类或对象（实例）的方法或构造器。与lambda联合使用，方法引用可以使用语言的构造更紧凑简洁，减少冗余代码。</li><li>Lambda 作用域</li><li>访问局部变量</li><li>访问对象字段与静态变量</li><li>访问接口的默认方法</li><li>Date API</li><li>支持多重注解</li><li>管道和流</li><li>新工具 - 新的编译工具，如：Nashorn引擎jjs，类依赖分析器jdeps</li><li>可选类 - 可选类已经成为Java 8类库的一部分，用来解决空指针异常</li><li>Nashorn，JavaScript引擎 - Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用<br>JDK 1.8 为当前使用最多的版本，（听说马上1.8以上的版本就要收费了！）点击<a href="https://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html" target="_blank" rel="noopener">1.8发行说明</a>更详细。</li></ul></blockquote><h5 id="JDK-1-9-开发代号-Elephant-巨象"><a href="#JDK-1-9-开发代号-Elephant-巨象" class="headerlink" title="JDK 1.9 开发代号 Elephant(巨象)"></a>JDK 1.9 开发代号 Elephant(巨象)</h5><blockquote><p><strong>简介：</strong><br>2017 年 9 月 22 日，oracle公司发布了Java1.9，带来了很多新特性，其中最主要的变化是已经实现的模块化系统。接下来我们会详细介绍 Java 9 的新特性。</p></blockquote><blockquote><p><strong>jdk1.9主要变化内容有：</strong> </p><ul><li>模块系统：模块是一个包的容器，Java 9 最大的变化之一是引入了模块系统（Jigsaw 项目）。</li><li>REPL (JShell)：交互式编程环境。</li><li>HTTP 2 客户端：HTTP/2标准是HTTP协议的最新版本，新的 HTTPClient API 支持 WebSocket 和 HTTP2 流以及服务器推送特性。</li><li>改进的 Javadoc：Javadoc 现在支持在 API 文档中的进行搜索。另外，Javadoc 的输出现在符合兼容 HTML5 标准。</li><li>多版本兼容 JAR 包：多版本兼容 JAR 功能能让你创建仅在特定版本的 Java 环境中运行库程序时选择使用的 class 版本。</li><li>集合工厂方法：List，Set 和 Map 接口中，新的静态工厂方法可以创建这些集合的不可变实例。</li><li>私有接口方法：在接口中使用private私有方法。我们可以使用 private 访问修饰符在接口中编写私有方法。</li><li>进程 API: 改进的 API 来控制和管理操作系统进程。引进 java.lang.ProcessHandle 及其嵌套接口 Info 来让开发者逃离时常因为要获取一个本地进程的 PID 而不得不使用本地代码的窘境。</li><li>改进的 Stream API：改进的 Stream API 添加了一些便利的方法，使流处理更容易，并使用收集器编写复杂的查询。</li><li>改进 try-with-resources：如果你已经有一个资源是 final 或等效于 final 变量,您可以在 try-with-resources 语句中使用该变量，而无需在 try-with-resources 语句中声明一个新变量。</li><li>改进的弃用注解 @Deprecated：注解 @Deprecated 可以标记 Java API 状态，可以表示被标记的 API 将会被移除，或者已经破坏。</li><li>改进钻石操作符(Diamond Operator) ：匿名类可以使用钻石操作符(Diamond Operator)。</li><li>改进 Optional 类：java.util.Optional 添加了很多新的有用方法，Optional 可以直接转为 stream。</li><li>多分辨率图像 API：定义多分辨率图像API，开发者可以很容易的操作和展示不同分辨率的图像了。</li><li>改进的 CompletableFuture API ： CompletableFuture 类的异步机制可以在 ProcessHandle.onExit 方法退出时执行操作。</li><li>轻量级的 JSON API：内置了一个轻量级的JSON API</li><li>响应式流（Reactive Streams) API: Java 9中引入了新的响应式流 API 来支持 Java 9 中的响应式编程。</li></ul></blockquote><h5 id="JDK-2-0-开发代号是forest-森林"><a href="#JDK-2-0-开发代号是forest-森林" class="headerlink" title="JDK 2.0 开发代号是forest(森林)"></a>JDK 2.0 开发代号是forest(森林)</h5><blockquote><p><strong>简介：</strong><br>jdk2.0正式版将在2018年3月份发布。</p></blockquote><blockquote><p><strong>jdk2.0变化内容：</strong> </p><ul><li>局部变量类型推断:局部变量类型推断将引入”var”关键字，也就是你可以随意定义变量而不必指定变量的类型.</li><li>GC改进和内存管理</li><li>线程本地握手（JEP 312）</li><li>备用内存设备上的堆分配（JEP 316）</li><li>其他Unicode语言 - 标记扩展（JEP 314）</li><li>基于Java的实验性JIT编译器</li><li>根证书（JEP 319）</li><li>将JDK生态整合单个存储库（JEP 296）</li><li>删除工具javah（JEP 313）</li></ul></blockquote><h5 id="JDK-2-1"><a href="#JDK-2-1" class="headerlink" title="JDK 2.1"></a>JDK 2.1</h5><blockquote><p><strong>简介：</strong><br>jdk1.11 正式版将在2018年9月份发布。</p></blockquote><blockquote><p><strong>jdk1.11变化内容：</strong> </p><ul><li>Nest-Based访问控制</li><li>动态类文件常量</li><li>改善Aarch64 intrinsic</li><li>无操作垃圾收集器</li><li>消除Java EE和CORBA模块</li><li>HTTP客户端(标准)</li><li>局部变量的语法λ参数</li><li>Curve25519和Curve448关键协议</li><li>Unicode 10</li><li>飞行记录器</li><li>ChaCha20和Poly1305加密算法</li><li>发射一列纵队源代码程序</li><li>低开销堆分析</li><li>传输层安全性(Transport Layer Security,TLS)1.3</li><li>动作:一个可伸缩的低延迟垃圾收集器 (实验)</li><li>反对Nashorn JavaScript引擎</li><li>反对Pack200工具和API</li></ul></blockquote><h5 id="JDK-2-2"><a href="#JDK-2-2" class="headerlink" title="JDK 2.2"></a>JDK 2.2</h5><blockquote><p><strong>简介：</strong><br>jdk1.12 正式版将在2019年3月份发布。</p></blockquote><blockquote><p><strong>jdk1.12变化内容：</strong> </p><ul><li>低暂停时间的 GC </li><li>微基准测试套件 </li><li>Switch 表达式 </li><li>JVM 常量 API </li><li>只保留一个 AArch64 实现 </li><li>默认类数据共享归档文件 </li><li>可中止的 G1 Mixed GC </li><li>G1 及时返回未使用的已分配内存</li></ul></blockquote><h3 id="完结"><a href="#完结" class="headerlink" title="完结"></a>完结</h3><p>JAVA 到现在也差不多23年了，还记得以前玩诺基亚上的小游戏，启动就是一个大大的热咖啡图片（Java logo）以及同样大大的java字样，真是感触良多呀！小伙伴们是不是要趁着java还热门，赶紧多学一点呢。毕竟过了这个村，下个村就没有花菇凉了哦！！😄</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;收集了一些JDK各个版本的重要特性，作为一个java开发，除了常用版本与当前火热的版本要了如指掌以外，其他版本也多少都得了解一些吧，不然还不得被小伙伴们笑掉大门牙呀！
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="jdk版本" scheme="http://yoursite.com/tags/jdk%E7%89%88%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java计算坐标绕另一个坐标任意角度旋转</title>
+    <link href="http://yoursite.com/2019/08/02/java%E8%AE%A1%E7%AE%97%E5%9D%90%E6%A0%87%E7%BB%95%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9D%90%E6%A0%87%E4%BB%BB%E6%84%8F%E8%A7%92%E5%BA%A6%E6%97%8B%E8%BD%AC/"/>
+    <id>http://yoursite.com/2019/08/02/java计算坐标绕另一个坐标任意角度旋转/</id>
+    <published>2019-08-01T22:05:29.000Z</published>
+    <updated>2019-08-02T07:04:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前做过一个业务需要对图片上某个坐标点进行旋转，于是找了很多资料，大多都是直接旋转图片的，后来终于得一算法，计算得很准确；在此献给大家，可以直接使用！</p><a id="more"></a><h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>‘’’java</p><pre><code> /** * 此函数为旋转坐标算法 * @param p 为需要旋转的坐标点  java.awt.geom.Point2D.Double 属性有:  public double x; public double y * @param pCenter 为围绕点    p坐标将以该坐标为原点进行旋转 * @param angle 为旋转角度  可以为任意角度 * @return 旋转结果 */ public static Point2D.Double rotatePoint(Point2D.Double p, Point2D.Double pCenter, double angle) {    float l = (float) ((angle * Math.PI) / 180);    float cosv = (float) Math.cos(l);    float sinv = (float) Math.sin(l);    float newX = (float) ((p.x - pCenter.x) * cosv - (p.y - pCenter.y) * sinv + pCenter.x);    float newY = (float) ((p.x - pCenter.x) * sinv + (p.y - pCenter.y) * cosv + pCenter.y);    return new Point2D.Double((double) newX, (double) newY);}</code></pre><p>‘’’</p><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>测试如下图所示:</p><p><img src="rotatePointTest.jpg" alt="测试图片"></p><p>测试函数</p><p>‘’’java</p><pre><code>public static void main(String[] args) {    // 需要旋转的坐标点  这里以像素代替坐标 方便测试    Point2D.Double p = new Point2D.Double(500,200);    // 围绕坐标，这里以图片中心点为例 图片大小为 h :1020px , w : 1020px    Point2D.Double pCenter = new Point2D.Double(1020 / 2d, 1020 / 2d);    // 旋转结果    System.out.println(p + &quot; 绕图片中心点旋转10度为: &quot; + rotatePoint(p,pCenter,10d));    System.out.println(p + &quot; 绕图片中心点旋转20度为: &quot; + rotatePoint(p,pCenter,20d));    System.out.println(p + &quot; 绕图片中心点旋转90度为: &quot; + rotatePoint(p,pCenter,90d));}</code></pre><p>‘’’</p><p>计算结果如下：</p><p><img src="result.jpg" alt="计算结果"></p><p>使用画图工具将图片旋转以检验结果！以90度为例。（因为画图工具只能旋转90的倍数，哈哈！）截图截不到鼠标的位置，小伙伴们时间充裕的话可以自己试试哦！</p><p><img src="rotateResult.jpg" alt="旋转90度结果"></p><p>90度还不足以能看出来效果？那再看看旋转10度！使用在线ps工具</p><p><img src="rotate10Result.jpg" alt="旋转10度结果"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>经过上面的测试检测，计算还是非常精确的！小伙伴们可以放心使用哦！</p><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>上面演示的是坐标像素绕中心坐标旋转，小伙伴可以根据自己的需求变换，函数第二的参数pCenter为围绕坐标。</p><p>画图工具以及在线ps工具的0，0位置在左上角，如果0，0位置在其他位置的则需要换算一下。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;之前做过一个业务需要对图片上某个坐标点进行旋转，于是找了很多资料，大多都是直接旋转图片的，后来终于得一算法，计算得很准确；在此献给大家，可以直接使用！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="坐标旋转" scheme="http://yoursite.com/tags/%E5%9D%90%E6%A0%87%E6%97%8B%E8%BD%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的博客</title>
+    <link href="http://yoursite.com/2019/07/30/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2019/07/30/我的博客/</id>
+    <published>2019-07-30T11:31:58.000Z</published>
+    <updated>2019-08-02T06:33:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>从今天开始，咱也是有自己博客的人啦。哈哈！以前一直想弄，却没有弄的博客，今天终于竣工完成了。弄了一天，主要是弄了一些主题、样式、效果之类的。<a id="more"></a>然后就开始纠结，想想要说些啥，好歹也是处女篇博客，不写点有深度的东西总感觉不是那么的完美。但是又不知道要写点什么好，犹豫良久，终于纠结癌上头，血压瞬间1800，得赶紧歇着了。得！还是啥也没写。洗洗睡了！毕竟，小命才是最重要的！！</p><h3 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h3><blockquote><p>以前逛别人的博客，经常会看到一些好的文章，让人有种 豁然开朗，茅塞顿开的感觉。当局者迷，很多时 候，我们会把自己逼进死胡同，换个角度看问题。其实并没有 那么复杂。言归正传，为什么没写过博客。 一是害怕自己文采不行，瞻前顾后，不敢作为！二是嫌麻烦， 有时候确实是没有时间，但大多时候确是懒惰在作怪！三 很多东西，只有自己去试过了才知道到底怎么样。毕竟很多时候别人的经历描述的不是那么完整，各种原因导致内容有删减。后来释怀了，只有做过才知道行不行。人不能总是逃 避问题，给自己找借口。</p></blockquote><h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><blockquote><p>一个苦逼的程序猿，主攻 java 开发，工作多，没提成。别人休假我加班。房贷没还清，保险自己缴，不过好在我不用交停车费，因为我根本买不起车。也没有啥成就。其他的就不多介绍了，毕竟也不是个相亲网站，说多了天上也不会掉媳妇！</p></blockquote><h3 id="关于内容"><a href="#关于内容" class="headerlink" title="关于内容"></a>关于内容</h3><blockquote><p>跟 java 相关的一些资料、笔记，以方便自己查阅，如果有人能从中得到些许收获，我无疑是非常开心的！学海无涯，不当之处，也希望能被指正出来。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从今天开始，咱也是有自己博客的人啦。哈哈！以前一直想弄，却没有弄的博客，今天终于竣工完成了。弄了一天，主要是弄了一些主题、样式、效果之类的。
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
