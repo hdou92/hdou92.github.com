@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-02T10:04:22.000Z</updated>
+  <updated>2019-08-12T07:09:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo解决图片显示不了</title>
+    <link href="http://yoursite.com/2019/08/07/hexo%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E4%B8%8D%E4%BA%86/"/>
+    <id>http://yoursite.com/2019/08/07/hexo解决图片显示不了/</id>
+    <published>2019-08-07T03:21:23.000Z</published>
+    <updated>2019-08-12T07:09:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在弄博客是时候不能幸免的遇到过图片显示的问题。当时网上看了很多解决方案，貌似都不顶用，也不知道是咋回事，郁闷得想吃包子的心都有。<a id="more"></a></p><h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p>hexo博客显示图片失败，编译出来路径错误，无法加载图片！</p><p><img src="%E6%97%A0%E5%8F%91%E6%98%BE%E7%A4%BA.jpg" alt="无发显示"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li>输入：<strong>npm install hexo-asset-image –save</strong>  或者 <strong>npm install https://github.com/CodeFalling/hexo-asset-image –save</strong> 都一样</li><li>打开博客根目录的<strong>_config.yml</strong> 找到 <strong>post_asset_folder</strong> 属性 设置为<strong>true</strong></li><li>输入: <strong>hexo new “博文名称”</strong> 新建博文 图片放在博文同名的文件夹中</li><li>找到插件js 路径为：<strong>\博客根目录\node_modules\hexo-asset-image\index.js</strong> 编辑工具打开将58行的 <strong>$(this).attr(‘src’, config.root + link + src);</strong>  修改为：<strong>$(this).attr(‘src’, src);</strong></li><li>引用图片就直接 <strong>![说明](图片名称.jpg)</strong>引入。</li><li>输入：<strong>hexo g &amp;&amp; hexo s</strong> 就ok了</li></ol><h3 id="心路历程"><a href="#心路历程" class="headerlink" title="心路历程"></a>心路历程</h3><p>刚搭建的时候也不知道会有图片显示的问题，那时候直接将图片放在主题的img文件夹中，直接可以引用，像引用头像一样。但是很不巧，弄主题的时候，发现别人都不是这么玩的。尴尬！<br>一. 人家都是在博客根目录输入：<strong>npm install hexo-asset-image –save</strong>  安装图片插件</p><p>二. 然后打开博客根目录的<strong>_config.yml</strong> 找到 <strong>post_asset_folder</strong> 属性 设置为<strong>true</strong> 默认为<strong>false</strong></p><p><img src="%E5%9B%BE%E7%89%87%E9%85%8D%E7%BD%AE.jpg" alt="图片配置"></p><p><strong>post_asset_folder</strong>属性作用：为每次创建博文文件的时候会创建一个同名称的文件夹，用来放博文相关文件。目录为：<strong>hexo\source_posts</strong> 如下：</p><p><img src="%E5%B1%9E%E6%80%A7%E6%A1%88%E4%BE%8B.jpg" alt="属性案例"></p><p>三. 然后再编辑完博文之后 输入: <strong>hexo g &amp;&amp; hexo s</strong> 生成静态文件 并 运行服务<br>访问服务地址，发现还是不能显示。</p><p><img src="%E6%97%A0%E5%8F%91%E6%98%BE%E7%A4%BA.jpg" alt="无发显示"></p><p>查看了一下源码发现路径不对，我编写的时候路径给的是<strong>\ ![test](test.jpg)</strong>,但是编译之后路径前面多了一个<strong>.com/</strong> 咋回事，玩我是吧！</p><p><img src="%E8%B7%AF%E5%BE%84%E9%94%99%E8%AF%AF.jpg" alt="路径错误"></p><p>然后各种问度娘，各种资料看又收获一图片插件，说起来很厉害的样子<br>输入：<strong>npm install https://github.com/CodeFalling/hexo-asset-image –save</strong><br>发现依然不能显示，我勒个去呀，爆炸有木有。又没心情弄了好吧！查看了一下源码发现路径还是不对，比上面的多了个日期，但是路径前面还是有<strong>.com/</strong> ，我是不能忍，咋程序员就要有勇于探索的神经不是！跑去插件目录（<strong>node_modules文件夹下</strong>）找到 <strong>hexo-asset-image</strong> 目录打开<strong>index.js</strong></p><p><img src="%E6%89%93%E5%BC%80js%E6%96%87%E4%BB%B6.jpg" alt="打开js文件"></p><p>再最下面找到<strong>$(this).attr(‘src’, config.root + link + src);</strong>这一剧代码修改为<strong>$(this).attr(‘src’, src);</strong></p><p><img src="%E4%BF%AE%E6%94%B9js.jpg" alt="修改js"></p><p>保存 输入：<strong>hexo g &amp;&amp; hexo s</strong> 搞定了！</p><p><img src="%E6%90%9E%E5%AE%9A.jpg" alt="搞定"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>开发的时候，有时候真的是很考验心态，常常一点点小问题，折磨的你欲仙欲死。而且特别花时间，所以遇到问题还是要冷静思考一下，实在不行就放一放，后续在弄，不然很难抽身出来。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在弄博客是时候不能幸免的遇到过图片显示的问题。当时网上看了很多解决方案，貌似都不顶用，也不知道是咋回事，郁闷得想吃包子的心都有。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="图片显示" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows远程连接&#39;登录没有成功&#39;,&#39;你的凭据不工作&#39;</title>
+    <link href="http://yoursite.com/2019/08/07/windows%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5-%E7%99%BB%E5%BD%95%E6%B2%A1%E6%9C%89%E6%88%90%E5%8A%9F-%E4%BD%A0%E7%9A%84%E5%87%AD%E6%8D%AE%E4%B8%8D%E5%B7%A5%E4%BD%9C/"/>
+    <id>http://yoursite.com/2019/08/07/windows远程连接-登录没有成功-你的凭据不工作/</id>
+    <published>2019-08-06T20:16:41.000Z</published>
+    <updated>2019-08-09T09:10:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>买了一台windows的云服务，装的2008的系统（老归老，吃内存少）结果远程连接不上，也是很服气了，别人都可以连接，而且最气的是都是win10系统，这不是在针对我么？我勒个不爽呀！一百万个羊驼有木有。<a id="more"></a></p><h3 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h3><p>打开远程连接工具之后，填写计算机和用户名</p><p><img src="%E9%94%99%E8%AF%AF%E6%8F%8F%E8%BF%B01.jpg" alt="错误描述1"></p><p>点击确认出现下面错误，’登录没有成功’,’你的凭据不工作’</p><p> <img src="%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5.jpg" alt="错误描述2"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>鼓捣了半天，还是把他给拿下了，解决方案很简单。将2个用户名同步即可 比如 都为：MicrosoftAccount\Administrator （输入该用户名之后，点击连接，你的凭据也会变为该用户名）</p><p> <img src="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%881.jpg" alt="解决方案1"></p><p>或者都为：Administrator</p><p> <img src="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%882.jpg" alt="解决方案2"></p><h3 id="原因-用户所在域问题"><a href="#原因-用户所在域问题" class="headerlink" title="原因-用户所在域问题"></a>原因-用户所在域问题</h3><p>Win8以后的Microsoft账户问题，由于Win8以后开始使用MS账户，由此产生了一些“无法远程”的问题。究其原因，是MS账户的域的问题。如上图所示，这是一台已登录MS账户的Win10计算机，想远程某个Win7机器时，域被自动设置成了MicrosoftAccount，此时输入用户名密码后，会提示凭据无法工作。这是因为远程计算机本地账户的域不是MicrosoftAccount，因此需要显式指定计算机的域。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>远程连接失败有很多种可能性，但这一种比较常见。草鸡简单呀有木有！真是，牙疼不是病，疼起来要你命啊！一点点小问题，不知道的话可以折磨得你欲仙欲死有木有。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;买了一台windows的云服务，装的2008的系统（老归老，吃内存少）结果远程连接不上，也是很服气了，别人都可以连接，而且最气的是都是win10系统，这不是在针对我么？我勒个不爽呀！一百万个羊驼有木有。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+      <category term="远程连接" scheme="http://yoursite.com/tags/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>JDK从1.0到12各版本介绍</title>
@@ -27,7 +71,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;收集了一些JDK各个版本的重要特性，作为一个java开发，除了常用版本与当前火热的版本要了如指掌以外，其他版本也多少都得了解一些吧，不然还不得被小伙伴们笑掉大门牙呀！
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;收集了一些JDK各个版本的重要特性，作为一个java开发，除了常用版本与当前火热的版本要了如指掌以外，其他版本也多少都得了解一些吧，不然还不得被小伙伴们笑掉大门牙呀！&lt;/p&gt;
     
     </summary>
     
@@ -73,7 +117,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;从今天开始，咱也是有自己博客的人啦。哈哈！以前一直想弄，却没有弄的博客，今天终于正式启动了。开发的时间过得是飞快的，很快一天过去了，只是弄了一些主题、样式、效果之类的。
+      &lt;p&gt;从今天开始，咱也是有自己博客的人啦。哈哈！以前一直想弄，却没有弄的博客，今天终于正式启动了。开发的时间过得是飞快的，很快一天过去了，只是弄了一些主题、样式、效果之类的。&lt;/p&gt;
     
     </summary>
     
