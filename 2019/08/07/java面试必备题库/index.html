@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="/2019/08/07/java面试必备题库/javaLogo.jpg">
 <meta property="og:image" content="/2019/08/07/java面试必备题库/%E9%A2%98%E5%BA%93.jpg">
-<meta property="og:updated_time" content="2019-08-15T02:59:59.000Z">
+<meta property="og:updated_time" content="2019-08-15T03:13:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面试必备题库">
 <meta name="twitter:description" content="前言 你还在为找不到工作烦恼？你还在为拿不到offer而夜不能寐？你还在为面试东奔西走而久久不得到认可？你还在为达不到你想要的薪资而纠结要不要去上班？何不停下脚步，看看下面的知识点你都会了？ 最后愿程序猿梦里没有秃头，也没有改不完的BUG，阿里路亚~">
@@ -815,7 +815,7 @@
 </li>
 </ul>
 <ul>
-<li><em>*如何避免 SQL 注入？</em> **<blockquote>
+<li><strong>如何避免 SQL 注入？</strong><blockquote>
 <p>使用预处理 PreparedStatement。<br>使用正则表达式过滤掉字符中的特殊字符。</p>
 </blockquote>
 </li>
@@ -1037,20 +1037,16 @@
 <ul>
 <li><strong>类在JVM中的加载过程</strong><blockquote>
 <p>Java文件被编译为Class字节码文件后被加载到JVM中，<br>主要分为五步：</p>
-</blockquote>
-</li>
-</ul>
 <ol>
 <li>加载:根据查找路径找到相应的 class 文件然后导入；</li>
 <li>连接:检查加载的 class 文件的正确性；</li>
 <li>准备:给类中的静态变量分配内存空间；</li>
-<li>解析:虚拟机将常量池中的符号引用替换成直接引用的过程。符号引用就理解为一个标示，而在直接引用直接指向内存中的地址；<blockquote>
-<ol start="5">
+<li>解析:虚拟机将常量池中的符号引用替换成直接引用的过程。符号引用就理解为一个标示，而在直接引用直接指向内存中的地址；</li>
 <li>初始化:对静态变量和静态代码块执行初始化工作。</li>
 </ol>
 </blockquote>
 </li>
-</ol>
+</ul>
 <ul>
 <li><strong>类是如何被加载到JVM中的？</strong><blockquote>
 <p>Java文件被编译成Class字节码文件后，通过类加载器被加载到JVM中。类加载器从上往下一共有：启动类加载器、扩展类加载器、应用程序类加载器、自定义类加载器。类先从自定义类加载器开始，逐层向上传递到启动类加载器，当启动类加载器不能加载时，再向扩展类加载器加载，这称为双亲委派模型。</p>
@@ -1083,14 +1079,10 @@
 </ul>
 <ul>
 <li><strong>常用的 JVM 调优的参数都有哪些？</strong><blockquote>
-<p>-Xms2g：初始化推大小为 2g；</p>
+<p>-Xms2g：初始化推大小为 2g；<br>-Xmx2g：堆最大内存为 2g；<br>-XX:NewRatio=4：设置年轻的和老年代的内存比例为 1:4；<br>-XX:SurvivorRatio=8：设置新生代 Eden 和 Survivor 比例为 8:2；<br>–XX:+UseParNewGC：指定使用 ParNew + Serial Old 垃圾回收器组合；<br>-XX:+UseParallelOldGC：指定使用 ParNew + ParNew Old 垃圾回收器组合；<br>-XX:+UseConcMarkSweepGC：指定使用 CMS + Serial Old 垃圾回收器组合；<br>-XX:+PrintGC：开启打印 gc 信息；<br>-XX:+PrintGCDetails：打印 gc 详细信息。</p>
 </blockquote>
 </li>
 </ul>
-<p>-Xmx2g：堆最大内存为 2g；<br>-XX:NewRatio=4：设置年轻的和老年代的内存比例为 1:4；<br>-XX:SurvivorRatio=8：设置新生代 Eden 和 Survivor 比例为 8:2；<br>–XX:+UseParNewGC：指定使用 ParNew + Serial Old 垃圾回收器组合；<br>-XX:+UseParallelOldGC：指定使用 ParNew + ParNew Old 垃圾回收器组合；<br>-XX:+UseConcMarkSweepGC：指定使用 CMS + Serial Old 垃圾回收器组合；<br>-XX:+PrintGC：开启打印 gc 信息；</p>
-<blockquote>
-<p>-XX:+PrintGCDetails：打印 gc 详细信息。</p>
-</blockquote>
 <h3 id="常用框架"><a href="#常用框架" class="headerlink" title="常用框架"></a>常用框架</h3><h4 id="Spring-Spring-MVC"><a href="#Spring-Spring-MVC" class="headerlink" title="Spring/Spring MVC"></a>Spring/Spring MVC</h4><ul>
 <li><strong>为什么要使用 spring？</strong><blockquote>
 <p>spring 提供 ioc 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。<br>spring 提供了事务支持，使得事务操作变的更加方便。<br>spring 提供了面向切片编程，这样可以更方便的处理某一类的问题。<br>更方便的框架集成，spring 可以很方便的集成其他框架，比如 MyBatis、hibernate 等。</p>
@@ -1559,9 +1551,6 @@ public class TestInterceptor implements Interceptor {
 <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h4 id="sql优化"><a href="#sql优化" class="headerlink" title="sql优化"></a>sql优化</h4><ul>
 <li><strong>说一下常用的sql优化</strong><blockquote>
 <p>sql优化有很多，一般遵从五个原则：</p>
-</blockquote>
-</li>
-</ul>
 <ol>
 <li>减少数据访问： 设置合理的字段类型，启用压缩，通过索引访问等减少磁盘IO</li>
 <li>返回更少的数据： 只返回需要的字段和数据分页处理 减少磁盘io及网络io</li>
@@ -1593,6 +1582,9 @@ public class TestInterceptor implements Interceptor {
 <li>如果id是连续的，建议使用between。如:SELECT * FROM table WHERE id BETWEEN 1000000 AND 1000010;</li>
 <li>还有一种，可以在查询下一页时把上一页的行id作为参数传递给客户端程序，然后sql就改成了select * from table where id&gt;3000000 limit 10;</li>
 </ol>
+</blockquote>
+</li>
+</ul>
 <h4 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h4><ul>
 <li><strong>数据库的三范式是什么？</strong><blockquote>
 <p>第一范式（1NF）：强调的是列的原子性，即数据库表的每一列都是不可分割的原子数据项。<br>第二范式（2NF）：要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性。（在1NF基础上消除非主属性对主键的部分函数依赖）<br>第三范式（3NF）：任何非主属性不依赖于其它非主属性。（在2NF基础上消除传递依赖）</p>
@@ -1773,6 +1765,7 @@ public class TestInterceptor implements Interceptor {
 </blockquote>
 </li>
 </ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在这个技术更新迭代飞快,人才辈出的时代,技术固然重要,但良好的沟通能力,潜力,心态也同样是不可忽视的重要因素。加油吧！骚年~</p>
 
       
 
@@ -1910,7 +1903,7 @@ public class TestInterceptor implements Interceptor {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内容模块"><span class="toc-number">2.</span> <span class="toc-text">内容模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java基础"><span class="toc-number">3.</span> <span class="toc-text">java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#java-集合、容器"><span class="toc-number">3.1.</span> <span class="toc-text">java 集合、容器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Map"><span class="toc-number">3.1.1.</span> <span class="toc-text">Map</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Set"><span class="toc-number">3.1.2.</span> <span class="toc-text">Set</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#List"><span class="toc-number">3.1.3.</span> <span class="toc-text">List</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-多线程"><span class="toc-number">3.2.</span> <span class="toc-text">Java 多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-反射"><span class="toc-number">3.3.</span> <span class="toc-text">Java 反射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-对象拷贝"><span class="toc-number">3.4.</span> <span class="toc-text">Java 对象拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Web"><span class="toc-number">3.5.</span> <span class="toc-text">Java Web</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-异常"><span class="toc-number">3.6.</span> <span class="toc-text">Java 异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络-协议"><span class="toc-number">4.</span> <span class="toc-text">网络/协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-number">5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM"><span class="toc-number">6.</span> <span class="toc-text">JVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用框架"><span class="toc-number">7.</span> <span class="toc-text">常用框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Spring-MVC"><span class="toc-number">7.1.</span> <span class="toc-text">Spring/Spring MVC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Boot"><span class="toc-number">7.2.</span> <span class="toc-text">Spring Boot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Cloud"><span class="toc-number">7.3.</span> <span class="toc-text">Spring Cloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hibernate"><span class="toc-number">7.4.</span> <span class="toc-text">Hibernate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MyBatis"><span class="toc-number">7.5.</span> <span class="toc-text">MyBatis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息队列"><span class="toc-number">8.</span> <span class="toc-text">消息队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RabbitMQ"><span class="toc-number">8.1.</span> <span class="toc-text">RabbitMQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kafka"><span class="toc-number">8.2.</span> <span class="toc-text">Kafka</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zookeeper-组件"><span class="toc-number">9.</span> <span class="toc-text">Zookeeper 组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">10.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql优化"><span class="toc-number">10.1.</span> <span class="toc-text">sql优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL"><span class="toc-number">10.2.</span> <span class="toc-text">MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis"><span class="toc-number">10.3.</span> <span class="toc-text">Redis</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内容模块"><span class="toc-number">2.</span> <span class="toc-text">内容模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java基础"><span class="toc-number">3.</span> <span class="toc-text">java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#java-集合、容器"><span class="toc-number">3.1.</span> <span class="toc-text">java 集合、容器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Map"><span class="toc-number">3.1.1.</span> <span class="toc-text">Map</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Set"><span class="toc-number">3.1.2.</span> <span class="toc-text">Set</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#List"><span class="toc-number">3.1.3.</span> <span class="toc-text">List</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-多线程"><span class="toc-number">3.2.</span> <span class="toc-text">Java 多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-反射"><span class="toc-number">3.3.</span> <span class="toc-text">Java 反射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-对象拷贝"><span class="toc-number">3.4.</span> <span class="toc-text">Java 对象拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-Web"><span class="toc-number">3.5.</span> <span class="toc-text">Java Web</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java-异常"><span class="toc-number">3.6.</span> <span class="toc-text">Java 异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络-协议"><span class="toc-number">4.</span> <span class="toc-text">网络/协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-number">5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM"><span class="toc-number">6.</span> <span class="toc-text">JVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用框架"><span class="toc-number">7.</span> <span class="toc-text">常用框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Spring-MVC"><span class="toc-number">7.1.</span> <span class="toc-text">Spring/Spring MVC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Boot"><span class="toc-number">7.2.</span> <span class="toc-text">Spring Boot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Cloud"><span class="toc-number">7.3.</span> <span class="toc-text">Spring Cloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hibernate"><span class="toc-number">7.4.</span> <span class="toc-text">Hibernate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MyBatis"><span class="toc-number">7.5.</span> <span class="toc-text">MyBatis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息队列"><span class="toc-number">8.</span> <span class="toc-text">消息队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RabbitMQ"><span class="toc-number">8.1.</span> <span class="toc-text">RabbitMQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kafka"><span class="toc-number">8.2.</span> <span class="toc-text">Kafka</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zookeeper-组件"><span class="toc-number">9.</span> <span class="toc-text">Zookeeper 组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">10.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql优化"><span class="toc-number">10.1.</span> <span class="toc-text">sql优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL"><span class="toc-number">10.2.</span> <span class="toc-text">MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis"><span class="toc-number">10.3.</span> <span class="toc-text">Redis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">11.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
