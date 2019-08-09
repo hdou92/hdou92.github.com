@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="/2019/08/07/java面试必备题库/javaLogo.jpg">
 <meta property="og:image" content="/2019/08/07/java面试必备题库/%E9%A2%98%E5%BA%93.jpg">
-<meta property="og:updated_time" content="2019-08-15T03:13:27.000Z">
+<meta property="og:updated_time" content="2019-08-15T03:22:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面试必备题库">
 <meta name="twitter:description" content="前言 你还在为找不到工作烦恼？你还在为拿不到offer而夜不能寐？你还在为面试东奔西走而久久不得到认可？你还在为达不到你想要的薪资而纠结要不要去上班？何不停下脚步，看看下面的知识点你都会了？ 最后愿程序猿梦里没有秃头，也没有改不完的BUG，阿里路亚~">
@@ -190,7 +190,57 @@
 <p>你还在为找不到工作烦恼？你还在为拿不到offer而夜不能寐？你还在为面试东奔西走而久久不得到认可？你还在为达不到你想要的薪资而纠结要不要去上班？何不停下脚步，看看下面的知识点你都会了？</p>
 <p>最后愿程序猿梦里没有秃头，也没有改不完的BUG，阿里路亚~<a id="more"></a></p>
 <h3 id="内容模块"><a href="#内容模块" class="headerlink" title="内容模块"></a>内容模块</h3><p>内容模块如下图所示:<br><img src="/2019/08/07/java面试必备题库/%E9%A2%98%E5%BA%93.jpg" alt="题库"></p>
-<h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><ul>
+<h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><blockquote>
+<p><strong>首先来看一段代码</strong></p>
+</blockquote>
+<pre><code>public String method111() {
+    String ret = &quot;hello&quot;;
+    try {
+        return ret;
+    } finally {
+        ret = &quot;world&quot;;
+    }
+}</code></pre><ul>
+<li><strong>最终返回什么呢？</strong><blockquote>
+<p>最终返回什么呢？可能你知道，但是相信有一部分人是懵了的，因为我们都知道try-finally代码中finally模块最终一定会执行。下面咱们通过java字节码指令来看看到底发生了什么。<br>首先找到.class文件，然后执行<br>javap -verbose Test.class &gt;test.tx<br>然后保存到test.txt文件中</p>
+</blockquote>
+</li>
+</ul>
+<pre><code> public java.lang.String method111();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=1
+        0: ldc           #2 //把常量池中的常量压到操作数栈里// String hello
+        2: astore_1      //然后存到本地变量1中
+         3: aload_1       //加载本地变量1到操作数栈
+         4: astore_2      //再把它保存到本地变量2中
+         5: ldc           #3 //把常量池中的常量压到操作数栈里// String world
+        7: astore_1      //然后存到本地变量1中
+         8: aload_2       //加载本地变量2到操作数栈
+         9: areturn       //返回栈里的数据 hello 因为本地变量保存的是hello
+        10: astore_3
+        11: ldc           #3                  // String world
+        13: astore_1
+        14: aload_3
+        15: athrow
+      Exception table:
+         from    to  target type
+             3     5    10   any
+      LineNumberTable:
+        line 7: 0
+        line 9: 3
+        line 11: 5
+        line 9: 8
+        line 11: 10
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Lcom/u2jinfu/com/requestbank/controller/Test;
+3      13     1   ret   Ljava/lang/String;
+.....其他部分省略</code></pre><blockquote>
+<p>由字节码指令可以看出，显示把hello保存到本地变1和本地变量2中。后面返回的是本地变量2，所以返回的就是hello，通过现象看本质。</p>
+</blockquote>
+<ul>
 <li><strong>JDK 和 JRE 有什么区别？</strong><blockquote>
 <p>JDK：Java Development Kit 的简称，Java 开发工具包，提供了 Java 的开发环境和运行环境。<br>JRE：Java Runtime Environment 的简称，Java 运行环境，为 Java 的运行提供了所需环境。<br>具体来说 JDK 其实包含了 JRE，同时还包含了编译 Java 源码的编译器 Javac，还包含了很多 Java 程序调试和分析的工具。简单来说：如果你需要运行 Java 程序，只需安装 JRE 就可以了，如果你需要编写 Java 程序，需要安装 JDK。</p>
 </blockquote>
@@ -943,19 +993,16 @@
 <ul>
 <li><strong>JVM运行时划分哪几个区域？哪些区域是线程共享的？哪些区域是线程独占的？</strong><blockquote>
 <p>不同虚拟机的运行时数据区可能略微有所不同，但都会遵从 Java 虚拟机规范， Java 虚拟机规范规定的区域分为以下 5 个部分：<br>JVM运行时一共划分：</p>
-</blockquote>
-</li>
-</ul>
 <ol>
 <li>程序计数器(Program Counter Register)：当前线程所执行的字节码的行号指示器，字节码解析器的工作是通过改变这个计数器的值，来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能，都需要依赖这个计数器来完成；</li>
 <li>虚拟机栈(Java Virtual Machine Stacks)：用于存储局部变量表、操作数栈、动态链接、方法出口等信息；</li>
 <li>堆(Java Heap)：Java 虚拟机中内存最大的一块，是被所有线程共享的，几乎所有的对象实例都在这里分配内存；</li>
 <li>本地方法栈(Native Method Stack)：与虚拟机栈的作用是一样的，只不过虚拟机栈是服务 Java 方法的，而本地方法栈是为虚拟机调用 Native 方法服务的；</li>
-<li>方法区(Methed Area)：用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译后的代码等数据。<blockquote>
-<p>线程共享的数据区域：堆、方法区。<br>线程独享的数据区域区域：程序计数器、虚拟机栈、本地方法栈。</p>
+<li>方法区(Methed Area)：用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译后的代码等数据。<br>线程共享的数据区域：堆、方法区。<br>线程独享的数据区域区域：程序计数器、虚拟机栈、本地方法栈。</li>
+</ol>
 </blockquote>
 </li>
-</ol>
+</ul>
 <ul>
 <li><strong>这几个内存区域分别存放什么数据？</strong><blockquote>
 <p>程序计数器记录当前线程执行的位置；<br>虚拟机栈存储基本数据类型以及对象的引用等；<br>堆存储对象实例；<br>本地方法栈与虚拟机栈类似，它为Native方法服务；<br>方法区存储被JVM加载的类信息、常量、静态变量等。</p>
