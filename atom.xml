@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-08-15T03:22:35.000Z</updated>
+  <updated>2019-09-04T03:42:48.000Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VMware Workstation 与 Hyper-V 不兼容。请先从系统中移除 Hyper-V 角色，然后再运行 VMware Workstation</title>
+    <link href="/2019/09/03/VMware-Workstation-%E4%B8%8E-Hyper-V-%E4%B8%8D%E5%85%BC%E5%AE%B9%E3%80%82%E8%AF%B7%E5%85%88%E4%BB%8E%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%A7%BB%E9%99%A4-Hyper-V-%E8%A7%92%E8%89%B2%EF%BC%8C%E7%84%B6%E5%90%8E%E5%86%8D%E8%BF%90%E8%A1%8C-VMware-Workstation/"/>
+    <id>/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/</id>
+    <published>2019-09-02T19:45:07.000Z</published>
+    <updated>2019-09-04T03:42:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多人都用过，VMware虚机工具，今天记录一下使用过程中遇到的一个坑，如题：VMware Workstation 与 Hyper-V 不兼容。请先从系统中移除 Hyper-V 角色，然后再运行 VMware Workstation。我的是win 10 系统，网上的解决方案绝大多都如出一辙。并且没有解决我的问题！记录一下，希望可以帮到别人。<a id="more"></a></p><h3 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h3><p>我的系统是win 10的系统，根据网上的资料，我找到了我的： 程序和功能 -&gt;  启用或关闭 Windows 功能 -&gt; Hyper-V 发现我的Hyper-V 压根没有选中。失败！<br><img src="/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/hyper-v.jpg" alt="hyper-v"></p><p>然后也试了在命令行输入：bcdedit /copy {current} /d “Windows 10 (关闭 Hyper-V)”然后输入： bcdedit /set {你记下的那串代码} hypervisorlaunchtype OFF<br><img src="/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/cmd.jpg" alt="cmd"></p><p>依然是不行。心态就有点蹦，系统都快玩坏了，还不行，这也太坑了！又找了很多资料，最后在 <a href="https://cway.top/post/120.html" target="_blank" rel="noopener">https://cway.top/post/120.html</a> 找到了解决方案！</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>Hyper-v是微软一款虚拟机软件，这里会跟vmware冲突，因此在功能里把Hyper-v的勾去掉重新启动即可（可以按win+q启动小娜，然后搜索“启用或关闭Win”也可以找到）。<br><img src="/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/%E5%8B%BE%E9%80%89.jpg" alt="勾选"></p><p>另外关闭windows Defender中的内存隔离：<br><img src="/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/%E5%86%85%E6%A0%B8.jpg" alt="内核"></p><p>搞定， 收工！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;很多人都用过，VMware虚机工具，今天记录一下使用过程中遇到的一个坑，如题：VMware Workstation 与 Hyper-V 不兼容。请先从系统中移除 Hyper-V 角色，然后再运行 VMware Workstation。我的是win 10 系统，网上的解决方案绝大多都如出一辙。并且没有解决我的问题！记录一下，希望可以帮到别人。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="VMware" scheme="/tags/VMware/"/>
+    
+  </entry>
   
   <entry>
     <title>java面试必备题库</title>
