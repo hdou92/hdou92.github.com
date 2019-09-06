@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>Tag: 远程连接 | 渡</title>
+  <title>commons-httpclient文件上传文件名中文乱码 | 渡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="能来即是圆">
-<meta name="keywords" content="渡">
-<meta property="og:type" content="website">
-<meta property="og:title" content="渡">
-<meta property="og:url" content="/tags/远程连接/index.html">
+  <meta name="description" content="前言记录一下文件上传文件名中文乱码的问题。使用的框架是 commons-httpclient-3.1，网上也有很多资料，但很多都不是介绍文件名乱码的。或者说得不够详细。">
+<meta name="keywords" content="commons-httpclient,java文件上传,中文乱码,http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="commons-httpclient文件上传文件名中文乱码">
+<meta property="og:url" content="/2019/09/05/commons-httpclient文件上传文件名中文乱码/index.html">
 <meta property="og:site_name" content="渡">
-<meta property="og:description" content="能来即是圆">
+<meta property="og:description" content="前言记录一下文件上传文件名中文乱码的问题。使用的框架是 commons-httpclient-3.1，网上也有很多资料，但很多都不是介绍文件名乱码的。或者说得不够详细。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-06T02:54:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡">
-<meta name="twitter:description" content="能来即是圆">
+<meta name="twitter:title" content="commons-httpclient文件上传文件名中文乱码">
+<meta name="twitter:description" content="前言记录一下文件上传文件名中文乱码的问题。使用的框架是 commons-httpclient-3.1，网上也有很多资料，但很多都不是介绍文件名乱码的。或者说得不够详细。">
   
     <link rel="alternative" href="/atom.xml" title="渡" type="application/atom+xml">
   
@@ -162,65 +163,428 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-commons-httpclient文件上传文件名中文乱码" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/07/windows远程连接-登录没有成功-你的凭据不工作/" class="archive-article-date">
-  	<time datetime="2019-08-06T20:16:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/windows远程连接-登录没有成功-你的凭据不工作/">windows远程连接&#39;登录没有成功&#39;,&#39;你的凭据不工作&#39;</a>
+    <h1 class="article-title" itemprop="name">
+      commons-httpclient文件上传文件名中文乱码
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/05/commons-httpclient文件上传文件名中文乱码/" class="archive-article-date">
+  	<time datetime="2019-09-05T10:04:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>记录一下文件上传文件名中文乱码的问题。使用的框架是 commons-httpclient-3.1，网上也有很多资料，但很多都不是介绍文件名乱码的。或者说得不够详细。<a id="more"></a></p>
+<h3 id="简单介绍-commons-httpclient"><a href="#简单介绍-commons-httpclient" class="headerlink" title="简单介绍 commons-httpclient"></a>简单介绍 commons-httpclient</h3><p>引用一下官网的介绍：</p>
+<blockquote>
+<p>The Commons HttpClient project is now end of life, and is no longer being developed. It has been replaced by the Apache HttpComponents project in its HttpClient and HttpCore modules, which offer better performance and more flexibility.</p>
+</blockquote>
+<p>意思大概是：Commons HttpClient项目现已不再维护升级了。它已被HttpClient和HttpCore模块中的Apache HttpComponents项目取代，它提供了更好的性能和更大的灵活性。</p>
+<h3 id="乱码原因"><a href="#乱码原因" class="headerlink" title="乱码原因"></a>乱码原因</h3><p>查看源码可以看到，文件上传获取文件名方法如下：</p>
+<pre><code>// org.apache.commons.httpclient.methods.multipart.FilePart 类的 sendDispositionHeader 方法
+protected void sendDispositionHeader(OutputStream out) 
+throws IOException {
+    LOG.trace(&quot;enter sendDispositionHeader(OutputStream out)&quot;);
+    super.sendDispositionHeader(out);
+    String filename = this.source.getFileName();
+    if (filename != null) {
+        out.write(FILE_NAME_BYTES);
+        out.write(QUOTE_BYTES);
+        out.write(EncodingUtil.getAsciiBytes(filename));// 写入文件名
+        out.write(QUOTE_BYTES);
+    }
+}
+
+
+
+// 看看 FilePart 的父类 Part 的 sendDispositionHeader 方法
+protected void sendDispositionHeader(OutputStream out) throws IOException {
+LOG.trace(&quot;enter sendDispositionHeader(OutputStream out)&quot;);
+    out.write(CONTENT_DISPOSITION_BYTES);
+    out.write(QUOTE_BYTES);
+    out.write(EncodingUtil.getAsciiBytes(getName()));// 写入文件名
+    out.write(QUOTE_BYTES);
+}
+
+
+
+
+// 看看 EncodingUtil.getAsciiBytes(filename) 方法
+public static byte[] getAsciiBytes(final String data) {
+
+    if (data == null) {
+        throw new IllegalArgumentException(&quot;Parameter may not be null&quot;);
+    }
+
+    try {
+        return data.getBytes(&quot;US-ASCII&quot;);// 编码
+    } catch (UnsupportedEncodingException e) {
+        throw new HttpClientError(&quot;HttpClient requires ASCII support&quot;);
+    }
+}</code></pre><p>从上面的源码可以看到，写死了用 US-ASCII 编码，那么乱码也是正常情况呀！</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>自定义一个 FilePart 类，重写sendDispositionHeader方法，且不继承父类实现，重写方法如下：</p>
+<pre><code>protected void sendDispositionHeader(OutputStream out) throws IOException {
+    // 实现 Part 的方法
+    out.write(CONTENT_DISPOSITION_BYTES);
+    out.write(QUOTE_BYTES);
+    out.write(EncodingUtil.getBytes(getName(), &quot;utf-8&quot;));//OK，通过
+    out.write(QUOTE_BYTES);
+    // 实现 FilePart 的方法
+    String fileName = getSource().getFileName();
+    if (fileName != null) {
+        out.write(EncodingUtil.getAsciiBytes(FILE_NAME));
+        out.write(QUOTE_BYTES);
+        out.write(EncodingUtil.getBytes(fileName, &quot;utf-8&quot;));//OK，通过
+        out.write(QUOTE_BYTES);
+    }
+}</code></pre><h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><p>栗子使用的是spring boot搭建的项目</p>
+<h5 id="maven-引入依赖"><a href="#maven-引入依赖" class="headerlink" title="maven 引入依赖"></a>maven 引入依赖</h5><pre><code>&lt;dependency&gt; 
+    &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre><h5 id="自定义-FilePart"><a href="#自定义-FilePart" class="headerlink" title="自定义 FilePart"></a>自定义 FilePart</h5><pre><code>import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import org.apache.commons.httpclient.methods.multipart.FilePart;
+import org.apache.commons.httpclient.util.EncodingUtil;
+
+/**
+ * 解决中文文件名乱码
+ */
+public class CustomFilePart extends FilePart {
+    public CustomFilePart(String filename, File file)
+            throws FileNotFoundException {
+        super(filename, file);
+    }
+
+    protected void sendDispositionHeader(OutputStream out) throws IOException {
+        // http://www.it610.com/article/487248.htm
+        // 实现基类Part方法
+        out.write(CONTENT_DISPOSITION_BYTES);
+        out.write(QUOTE_BYTES);
+        out.write(EncodingUtil.getBytes(getName(), &quot;utf-8&quot;));//OK，通过
+        out.write(QUOTE_BYTES);
+// 实现父类FilePart方法
+        String fileName = getSource().getFileName();
+        if (fileName != null) {
+            out.write(EncodingUtil.getAsciiBytes(FILE_NAME));
+            out.write(QUOTE_BYTES);
+            out.write(EncodingUtil.getBytes(fileName, &quot;utf-8&quot;));//OK，通过
+            out.write(QUOTE_BYTES);
+        }
+    }
+}</code></pre><h5 id="文件上传类"><a href="#文件上传类" class="headerlink" title="文件上传类"></a>文件上传类</h5><pre><code>import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
+import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.methods.multipart.StringPart;
+
+import java.io.File;
+
+public class HttpTest {
+
+    private static final String URL = &quot;http://localhost:8090/api/file/upload&quot;;
+
+    private static final File LOCAL_FILE = new File(&quot;E:/test/test中文乱码文件.log&quot;);
+
+    public static void main(String[] args) throws Exception {
+        HttpTest httpClientTest = new HttpTest();
+        httpClientTest.httpFileTest();
+    }
+
+
+    public void httpFileTest() throws Exception {
+
+        if (!LOCAL_FILE.exists()) {
+            System.out.println(&quot;文件不存在&quot;);
+        }
+        PostMethod filePost = new PostMethod(URL);
+        CustomFilePart fp = new CustomFilePart(&quot;file&quot;, LOCAL_FILE);
+        fp.setCharSet(&quot;utf-8&quot;);
+        // StringPart:普通的文本参数
+        Part[] parts = {fp, new StringPart(&quot;name&quot;, &quot;名称a11&quot;, &quot;utf-8&quot;),
+                new StringPart(&quot;version&quot;, &quot;版本a1.1&quot;, &quot;utf-8&quot;)};
+        // 对于MIME类型的请求，httpclient建议全用MulitPartRequestEntity进行包装
+        MultipartRequestEntity mre = new MultipartRequestEntity(parts, filePost.getParams());
+        filePost.setRequestEntity(mre);
+        HttpClient client = new HttpClient();
+        client.executeMethod(filePost);
+        // 释放连接
+        filePost.releaseConnection();
+
+    }
+
+
+
+}</code></pre><h5 id="接收接口类"><a href="#接收接口类" class="headerlink" title="接收接口类"></a>接收接口类</h5><pre><code>import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+
+@RestController
+@RequestMapping(value = &quot;/api/file&quot;)
+public class FileController {
+
+
+    private String basePath = &quot;/test&quot;;
+
+
+    /**
+     * 文件上传
+     */
+    @RequestMapping(value = &quot;/upload&quot;, method = RequestMethod.POST)
+    public String upload(@RequestParam(&quot;file&quot;) MultipartFile file, String name, String version) {
+        if (file.isEmpty()) {
+            return &quot;文件为空&quot;;
+        }
+        // 获取文件名
+        String fileName = file.getOriginalFilename();
+        System.out.println(&quot;上传的文件名为：&quot; + fileName + file.getName());
+        // 获取文件的后缀名
+        String suffixName = fileName.substring(fileName.lastIndexOf(&quot;.&quot;));
+        System.out.println(&quot;上传的后缀名为：&quot; + suffixName);
+        // 文件上传路径
+        String filePath = getFilePath(name, version);
+        File dest = getFile(filePath + fileName);
+
+        try {
+            file.transferTo(dest);
+            return &quot;上传成功&quot;;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return &quot;上传失败&quot;;
+    }
+
+
+    /**
+     * 获取文件路径
+     */
+    private String getFilePath(String name, String version) {
+        return new File(basePath + &quot;/&quot; + name + &quot;/&quot; + version).getAbsolutePath() + &quot;/&quot;;
+    }
+
+    private File getFile(String path) {
+        // 解决中文问题，liunx 下中文路径，图片显示问题会出问题
+        // fileName = UUID.randomUUID() + suffixName;      //一般是使用uuid生成随机的文件名 + 截取的文件后缀。
+        File dest = new File(path);
+        // 检测是否存在目录
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        return dest;
+    }
+
+
+}</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>commons-httpclient 用起来确实很简单，但对于新项目或技术选型的话，建议还是使用取代它的 httpclient。或者其他框架,毕竟 commons-httpclient 已停止更新了！</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">commons-httpclient</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">远程连接</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java文件上传</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中文乱码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/09/05/commons-httpclient文件上传文件名中文乱码/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/03/VMware-Workstation-与-Hyper-V-不兼容。请先从系统中移除-Hyper-V-角色，然后再运行-VMware-Workstation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VMware Workstation 与 Hyper-V 不兼容。请先从系统中移除 Hyper-V 角色，然后再运行 VMware Workstation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单介绍-commons-httpclient"><span class="toc-number">2.</span> <span class="toc-text">简单介绍 commons-httpclient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乱码原因"><span class="toc-number">3.</span> <span class="toc-text">乱码原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举个栗子"><span class="toc-number">5.</span> <span class="toc-text">举个栗子</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#maven-引入依赖"><span class="toc-number">5.0.1.</span> <span class="toc-text">maven 引入依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义-FilePart"><span class="toc-number">5.0.2.</span> <span class="toc-text">自定义 FilePart</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件上传类"><span class="toc-number">5.0.3.</span> <span class="toc-text">文件上传类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接收接口类"><span class="toc-number">5.0.4.</span> <span class="toc-text">接收接口类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
 
+  
+
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "P6qN6nnCmdcKRzKIX65yfBkU-gzGzoHsz",
+            app_key: "EdmKFjY1oo1lDbRfa2peI5SV",
+            placeholder: "兄嘚~ 你难道不想说两句么！！",
+            avatar:"mm"
+        });
+    }
+</script>
+    </section>
+  
 
           </div>
         </div>
@@ -242,9 +606,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
