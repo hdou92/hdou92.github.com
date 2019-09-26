@@ -6,19 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href>
-  <title>Tag: http | 渡</title>
+  <title>Git介绍及指令 | 渡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="能来即是圆">
-<meta name="keywords" content="渡">
-<meta property="og:type" content="website">
-<meta property="og:title" content="渡">
-<meta property="og:url" content="/tags/http/index.html">
+  <meta name="description" content="前言 对于一个加班比别人多,头发比别人少的程序猿来说。Git 想必也是无人不知,无人不晓。就算没吃过猪肉,也见过猪上树不是。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git介绍及指令">
+<meta property="og:url" content="/2019/09/25/Git介绍及指令/index.html">
 <meta property="og:site_name" content="渡">
-<meta property="og:description" content="能来即是圆">
+<meta property="og:description" content="前言 对于一个加班比别人多,头发比别人少的程序猿来说。Git 想必也是无人不知,无人不晓。就算没吃过猪肉,也见过猪上树不是。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/Git-Logo.jpg">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/GIT.jpg">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/SVN.jpg">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/view.png">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/local.jpg">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/branch.jpg">
+<meta property="og:image" content="/2019/09/25/Git介绍及指令/%E7%AE%A1%E7%90%86%E6%A8%A1%E5%BC%8F.jpg">
+<meta property="og:updated_time" content="2019-09-29T01:45:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡">
-<meta name="twitter:description" content="能来即是圆">
+<meta name="twitter:title" content="Git介绍及指令">
+<meta name="twitter:description" content="前言 对于一个加班比别人多,头发比别人少的程序猿来说。Git 想必也是无人不知,无人不晓。就算没吃过猪肉,也见过猪上树不是。">
+<meta name="twitter:image" content="/2019/09/25/Git介绍及指令/Git-Logo.jpg">
   
     <link rel="alternative" href="/atom.xml" title="渡" type="application/atom+xml">
   
@@ -162,73 +171,333 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Git介绍及指令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/05/commons-httpclient文件上传文件名中文乱码/" class="archive-article-date">
-  	<time datetime="2019-09-05T10:04:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/05/commons-httpclient文件上传文件名中文乱码/">commons-httpclient文件上传文件名中文乱码</a>
+    <h1 class="article-title" itemprop="name">
+      Git介绍及指令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/25/Git介绍及指令/" class="archive-article-date">
+  	<time datetime="2019-09-24T19:18:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="/2019/09/25/Git介绍及指令/Git-Logo.jpg" alt="Git-Logo"></p>
+<p>对于一个加班比别人多,头发比别人少的程序猿来说。Git 想必也是无人不知,无人不晓。就算没吃过猪肉,也见过猪上树不是。<a id="more"></a></p>
+<h3 id="Git-简介"><a href="#Git-简介" class="headerlink" title="Git 简介"></a>Git 简介</h3><p>git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。git来源于linux,linux的开发团队自己做的，它原来的版本控制 BitKeeper 最早开始免费，后面要收费。linux 内核开发者，遍布全球，git 天生就是一个人分布式的系统。</p>
+<h3 id="Git-的特性"><a href="#Git-的特性" class="headerlink" title="Git 的特性"></a>Git 的特性</h3><ol>
+<li>每台电脑都有一个版本库,可以在本地做版本管理。</li>
+<li>速度快,git 的速度远超大部分版本管理系统,包括svn。</li>
+<li>强大的分支管理功能。</li>
+<li>活跃的开源社区,如最著名的GitHub。</li>
+</ol>
+<h3 id="Git-与-SVN-的区别"><a href="#Git-与-SVN-的区别" class="headerlink" title="Git 与 SVN 的区别"></a>Git 与 SVN 的区别</h3><ol>
+<li>Git 是分布式的,SVN不是</li>
+<li>Git 与 SVN 版本机制不一样</li>
+<li>Git 不需要联网 SVN 必须联网</li>
+<li>Git 的内容完整性要优于 SVN</li>
+</ol>
+<p>Git</p>
+<p><img src="/2019/09/25/Git介绍及指令/GIT.jpg" alt="Git"></p>
+<p>SVN<br>SVN的问题:用过SVN的知道,在每个文件夹中都会有一个SVN文件。项目大的话,SVN文件会占用很大的空间<br><img src="/2019/09/25/Git介绍及指令/SVN.jpg" alt="SVN"></p>
+<h3 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h3><p>可视化工具,都是点击几下就搞定了,这里不多做介绍。</p>
+<p><img src="/2019/09/25/Git介绍及指令/view.png" alt="view"></p>
+<h3 id="Git-常用命令"><a href="#Git-常用命令" class="headerlink" title="Git 常用命令"></a>Git 常用命令</h3><h5 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h5><p><strong>git config -l             查看配置</strong></p>
+<blockquote>
+<p>git配置文件 必配项 user.name  和 user.email<br>配置优先级 git/config &gt; 当前用户目录 /.gitconfig &gt; git安装目录 /etc/gitconfig</p>
+</blockquote>
+<p><strong>git init                本地仓库创建</strong></p>
+<blockquote>
+<p>初始化一个本地仓库，在同级目录下会出现一个隐藏的 .git 文件 。git init 之前必须登录 。 不然会报错</p>
+</blockquote>
+<p><strong>git add            添加到缓存文档库</strong><br><strong>git commit -m        本地提交</strong></p>
+<blockquote>
+<p>如下图所示<br><img src="/2019/09/25/Git介绍及指令/local.jpg" alt="local"><br>git add 把文件加入到缓存库中 。<br>git add . 把所有新增的文件，修改的文件加入到缓存库<br>git add -A 把所有新增的文件，修改的文件，删除的文件都加入到缓存库  （这里要注意，使用-A,少用 .）<br>git commit -m ‘版本描述’ 提交到文件库</p>
+</blockquote>
+<h4 id="标签和日志"><a href="#标签和日志" class="headerlink" title="标签和日志"></a>标签和日志</h4><h5 id="Git-中的三类文件"><a href="#Git-中的三类文件" class="headerlink" title="Git 中的三类文件"></a>Git 中的三类文件</h5><ol>
+<li>被追踪的(tracked):已经加入文档库</li>
+<li>不被追踪的(untracked):没有加入文档库</li>
+<li>忽略的(ignored):忽略那些不需要git管理的文件夹或文件</li>
+</ol>
+<h5 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h5><p><strong>git status</strong></p>
+<blockquote>
+<p>查看本地仓库的状态</p>
+</blockquote>
+<h5 id="忽略排除"><a href="#忽略排除" class="headerlink" title="忽略排除"></a>忽略排除</h5><p>目录下建立一个 <strong>.gitignore</strong> 文件(可以又多个,影响范围当前文件及子文件)</p>
+<p><strong>注意</strong><br>新建一个忽略文件 为什么没有生效 。<br>git rm -r –cached . 把所有本地缓存删除，（把所有文件改为未追踪）再次提交,忽略文件将会生效</p>
+<h5 id="提交点"><a href="#提交点" class="headerlink" title="提交点"></a>提交点</h5><p>ID:每次 commit 都是一个提交点,唯一标识SHA1的ID,ID可使用前4至7个数字表示<br>标签:git tag -a v0.2 4a80f64(提交点SHA1的ID前7位)</p>
+<h5 id="日志命令"><a href="#日志命令" class="headerlink" title="日志命令"></a>日志命令</h5><p><strong>git log</strong><br><strong>git log –oneline</strong><br><strong>git log –oneline –graph</strong></p>
+<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p>分支意味着你可以从开发主线(master)上分离开来,在不影响主线的同时继续工作<br>注意:下面会以 dev 为例子讲解。</p>
+<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><p><strong>git branch</strong></p>
+<blockquote>
+<p>列出当前开发所有分支(默认会有master)<br><strong>git branch dev</strong><br>创建一个dev的分支(最新提交点)<br><strong>git branch dev</strong><br>提交点    创建一个dev的分支(指定提交点)</p>
+</blockquote>
+<h5 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h5><p><strong>git branch -d dev</strong></p>
+<blockquote>
+<p>删除dev分支</p>
+</blockquote>
+<h5 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h5><p><strong>git checkout dev</strong></p>
+<blockquote>
+<p>切换到dev分支</p>
+</blockquote>
+<h5 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h5><p><strong>git checkout master</strong></p>
+<blockquote>
+<p>切换到master分支<br><strong>git merge dev</strong><br>合并分支dev和主干master,合并后的提交点属于主干master</p>
+</blockquote>
+<p>git的分支如下图<br><img src="/2019/09/25/Git介绍及指令/branch.jpg" alt="branch"></p>
+<p>注意: 如果有冲突,使用指令模式,merge 合并的话,它一般不能自动合并这些冲突,需要手工区解决。<br>冲突要避免的话,需要开发规范,包名名。</p>
+<h4 id="更新和回退"><a href="#更新和回退" class="headerlink" title="更新和回退"></a>更新和回退</h4><p>HEAD<br>HEAD节点代表最新的commit 显示信息 git show HEAD</p>
+<p><strong>git reset    –hard v0.1</strong></p>
+<blockquote>
+<p>回退版本。git reset 选项 提交点(选项: –hard 表示全恢复, 提交点:可用ID或标签)</p>
+</blockquote>
+<p><strong>git reflog</strong>                </p>
+<blockquote>
+<p>查询所有提交点<br>回退后需要反悔的话,需要通过此命令查找到所有操作的提交点</p>
+</blockquote>
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><p>以gitHub为例,gitHub是一个面向开源及私有项目的托管平台,因为只支持git作为唯一的版本库格式进行托管,故名gitHub,与gitHub连接需要通过加密通道,有2中方式ssh 和 https</p>
+<p><strong>git clone &lt;远程地址&gt; &lt;本地文件名称&gt;</strong></p>
+<blockquote>
+<p>顾名思义 就是将git远程仓库的内容,克隆一份到本地文件名称目录，不指定本地文件名称则克隆到当前执行命令的目录</p>
+</blockquote>
+<p><strong>git fetch &lt;远程主机名&gt; &lt;本地分支名&gt;</strong></p>
+<blockquote>
+<p>拉取-从远程仓库获取最新的版本到&lt;本地分支名&gt;上。</p>
+</blockquote>
+<p><strong>git merge &lt;分支名称&gt;</strong></p>
+<blockquote>
+<p>合并分支</p>
+</blockquote>
+<p><strong>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</strong></p>
+<blockquote>
+<p>拉取合并-首先会执行 git fetch，然后执行 git merge，把获取的分支的 HEAD 合并到当前分支。</p>
+</blockquote>
+<p><strong>git push &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</strong></p>
+<blockquote>
+<p>推送-推送到远程仓库</p>
+</blockquote>
+<h3 id="管理模式"><a href="#管理模式" class="headerlink" title="管理模式"></a>管理模式</h3><p>虽然条条大路通罗马,但是不还有一句,没有规矩不成方圆嘛！一个团队,就必须有自己的管理模式,下面简单介绍一下规范的管理模式</p>
+<p><img src="/2019/09/25/Git介绍及指令/%E7%AE%A1%E7%90%86%E6%A8%A1%E5%BC%8F.jpg" alt="管理模式"></p>
+<p><strong>Production分支</strong></p>
+<blockquote>
+<p>Master分支,这个分支只能从其他分支合并,不能在这个分支直接修改。</p>
+</blockquote>
+<p><strong>Develop分支</strong></p>
+<blockquote>
+<p>这个分支是我们的主要开发分支,包含所有要发布到下一个Release的代码,这个主要合并与其他分支,比如Feature分支。</p>
+</blockquote>
+<p><strong>Feature分支</strong></p>
+<blockquote>
+<p>这个分支主要是用来开发一个新的功能,一旦开发完成,我们合并回Develop分支进入下一个Release</p>
+</blockquote>
+<p><strong>Release分支</strong></p>
+<blockquote>
+<p>当你需要一个发布一个新Release的时候,我们基于Develop分支创建一个Release分支,完成Release后,我们合并到Master和Develop分支</p>
+</blockquote>
+<p><strong>Hotfix分支</strong></p>
+<blockquote>
+<p>当我们在Production发现新的Bug时候,我们需要创建一个Hotfix,完成Hotfix后,我们合并到Master和Develop分支,所以Hotdfix的</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>git是一个非常强大,使用简单的版本管控工具。使用可视化工具操作git非常简单,为什么还要用命令呢？因为只有使用命令,才能更加深刻的理解git的内部原理,和处理流程,透过表面看本质。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">commons-httpclient</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java文件上传</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中文乱码</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2019/09/25/Git介绍及指令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/25/SpringMVC传Date参数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringMVC传Date参数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/09/05/commons-httpclient文件上传文件名中文乱码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">commons-httpclient文件上传文件名中文乱码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-简介"><span class="toc-number">2.</span> <span class="toc-text">Git 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-的特性"><span class="toc-number">3.</span> <span class="toc-text">Git 的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-与-SVN-的区别"><span class="toc-number">4.</span> <span class="toc-text">Git 与 SVN 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可视化工具"><span class="toc-number">5.</span> <span class="toc-text">可视化工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-常用命令"><span class="toc-number">6.</span> <span class="toc-text">Git 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#本地"><span class="toc-number">6.0.1.</span> <span class="toc-text">本地</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标签和日志"><span class="toc-number">6.1.</span> <span class="toc-text">标签和日志</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Git-中的三类文件"><span class="toc-number">6.1.1.</span> <span class="toc-text">Git 中的三类文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#状态"><span class="toc-number">6.1.2.</span> <span class="toc-text">状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#忽略排除"><span class="toc-number">6.1.3.</span> <span class="toc-text">忽略排除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提交点"><span class="toc-number">6.1.4.</span> <span class="toc-text">提交点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志命令"><span class="toc-number">6.1.5.</span> <span class="toc-text">日志命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分支"><span class="toc-number">6.2.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建分支"><span class="toc-number">6.2.1.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除分支"><span class="toc-number">6.2.2.</span> <span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#切换分支"><span class="toc-number">6.2.3.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合并分支"><span class="toc-number">6.2.4.</span> <span class="toc-text">合并分支</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新和回退"><span class="toc-number">6.3.</span> <span class="toc-text">更新和回退</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程仓库"><span class="toc-number">6.4.</span> <span class="toc-text">远程仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理模式"><span class="toc-number">7.</span> <span class="toc-text">管理模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
 
+  
+
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "P6qN6nnCmdcKRzKIX65yfBkU-gzGzoHsz",
+            app_key: "EdmKFjY1oo1lDbRfa2peI5SV",
+            placeholder: "兄嘚~ 你难道不想说两句么！！",
+            avatar:"mm"
+        });
+    }
+</script>
+    </section>
+  
 
           </div>
         </div>
@@ -250,9 +519,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
